@@ -24,6 +24,10 @@ def print_interfaces():
     print("2. 💻 Command Line Interface - Quick terminal-based access")
     print("3. 📊 Jupyter Notebook - Interactive analysis environment")
     print("4. ⚙️  Configuration Manager - Update system settings")
+    print("5. 🔐 API Configuration - Set up broker APIs for live trading")
+    print("6. 📚 User Guide - Complete usage guide")
+    print("7. 🇮🇳 NSE Live Dashboard - Enhanced NSE trading interface")
+    print("8. 📊 Simple NSE Dashboard - User-friendly Streamlit interface")
     print("0. 🚪 Exit")
     print()
 
@@ -361,6 +365,133 @@ def configuration_manager():
     
     print("\nTo modify configuration, edit the config.py file directly.")
 
+def launch_api_config():
+    """Launch the API configuration manager"""
+    print("\n🔐 Launching API Configuration Manager...")
+    print("-" * 40)
+    
+    try:
+        api_config_path = os.path.join('..', 'api_config_manager.py')
+        if os.path.exists(api_config_path):
+            subprocess.run([sys.executable, api_config_path])
+        else:
+            # Try from current directory
+            api_config_path = 'api_config_manager.py'
+            if os.path.exists(api_config_path):
+                subprocess.run([sys.executable, api_config_path])
+            else:
+                print("❌ API Configuration Manager not found!")
+                print("Please ensure api_config_manager.py is in the project root.")
+    except Exception as e:
+        print(f"❌ Failed to launch API configuration: {str(e)}")
+
+def show_user_guide():
+    """Display user guide information"""
+    print("\n📚 USER GUIDE")
+    print("-" * 40)
+    
+    guide_path = os.path.join('..', 'USER_GUIDE.md')
+    if not os.path.exists(guide_path):
+        guide_path = 'USER_GUIDE.md'
+    
+    if os.path.exists(guide_path):
+        print(f"📖 Complete user guide available at: {os.path.abspath(guide_path)}")
+        print("\n🎯 QUICK START:")
+        print("1. Configure APIs: Select option 5 from main menu")
+        print("2. Start with paper trading to practice")
+        print("3. Use Web Dashboard for best experience")
+        print("4. Monitor performance regularly")
+        print("5. Follow risk management rules")
+        
+        print("\n🏦 SUPPORTED BROKERS:")
+        print("• Zerodha Kite (India - NSE/BSE)")
+        print("• IIFL Markets (India - NSE/BSE)") 
+        print("• Alpaca Trading (US Markets)")
+        print("• Interactive Brokers (Global)")
+        
+        print("\n📈 AVAILABLE STRATEGIES:")
+        print("• Momentum Strategy - For trending markets")
+        print("• Mean Reversion Strategy - For ranging markets") 
+        print("• Adaptive Strategy - Adapts to market conditions")
+        
+        print("\n⚠️  IMPORTANT REMINDERS:")
+        print("• Always start with paper trading")
+        print("• Never risk more than you can afford to lose")
+        print("• Set proper stop losses and position sizes")
+        print("• Monitor your trades regularly")
+        
+        open_guide = input("\n📖 Open complete guide in default editor? (y/n): ").strip().lower()
+        if open_guide in ['y', 'yes']:
+            try:
+                if os.name == 'nt':  # Windows
+                    os.startfile(os.path.abspath(guide_path))
+                else:  # Linux/Mac
+                    subprocess.run(['open' if sys.platform == 'darwin' else 'xdg-open', 
+                                  os.path.abspath(guide_path)])
+            except Exception as e:
+                print(f"❌ Could not open guide: {str(e)}")
+        else:
+            print("❌ User guide not found!")
+            print("Please ensure USER_GUIDE.md is in the project directory.")
+
+def launch_nse_dashboard():
+    """Launch the enhanced NSE live trading dashboard"""
+    print("\n🇮🇳 Launching NSE Live Trading Dashboard...")
+    print("Features:")
+    print("• 📊 Live NSE market data")
+    print("• 🔍 Advanced search functionality")
+    print("• 📈 Interactive charts")
+    print("• ⚡ Real-time updates every 30 seconds")
+    print("• 🎯 Sector-wise filtering")
+    print("Opening at http://localhost:8050")
+    print("-" * 40)
+    
+    try:
+        dashboard_path = os.path.join('..', 'nse_live_trading_dashboard.py')
+        if os.path.exists(dashboard_path):
+            subprocess.run([sys.executable, dashboard_path])
+        else:
+            # Try from current directory
+            dashboard_path = 'nse_live_trading_dashboard.py'
+            if os.path.exists(dashboard_path):
+                subprocess.run([sys.executable, dashboard_path])
+            else:
+                print("❌ NSE Dashboard not found!")
+                print("Please ensure nse_live_trading_dashboard.py is available.")
+    except KeyboardInterrupt:
+        print("\n✅ NSE Dashboard stopped.")
+    except Exception as e:
+        print(f"❌ Failed to launch NSE Dashboard: {str(e)}")
+
+def launch_simple_nse_dashboard():
+    """Launch the simple Streamlit NSE dashboard"""
+    print("\n📊 Launching Simple NSE Dashboard...")
+    print("Features:")
+    print("• 🎨 Clean, intuitive Streamlit interface")
+    print("• 🔍 Smart search with auto-suggestions") 
+    print("• 📈 Interactive charts with multiple timeframes")
+    print("• ⚡ Quick filters for NIFTY 50, Banking, IT, Pharma")
+    print("• 📱 Touch-friendly mobile interface")
+    print("Opening at http://localhost:8501")
+    print("-" * 40)
+    
+    try:
+        dashboard_path = os.path.join('..', 'simple_nse_dashboard.py')
+        if os.path.exists(dashboard_path):
+            subprocess.run([sys.executable, '-m', 'streamlit', 'run', dashboard_path])
+        else:
+            # Try from current directory
+            dashboard_path = 'simple_nse_dashboard.py'
+            if os.path.exists(dashboard_path):
+                subprocess.run([sys.executable, '-m', 'streamlit', 'run', dashboard_path])
+            else:
+                print("❌ Simple NSE Dashboard not found!")
+                print("Please ensure simple_nse_dashboard.py is available.")
+    except KeyboardInterrupt:
+        print("\n✅ Simple NSE Dashboard stopped.")
+    except Exception as e:
+        print(f"❌ Failed to launch Simple NSE Dashboard: {str(e)}")
+
 def main():
     """Main launcher function"""
     print_banner()
@@ -369,7 +500,7 @@ def main():
         print_interfaces()
         
         try:
-            choice = input("Select interface (0-4): ").strip()
+            choice = input("Select interface (0-8): ").strip()
             
             if choice == '0':
                 print("\n👋 Goodbye!")
@@ -382,6 +513,14 @@ def main():
                 create_jupyter_notebook()
             elif choice == '4':
                 configuration_manager()
+            elif choice == '5':
+                launch_api_config()
+            elif choice == '6':
+                show_user_guide()
+            elif choice == '7':
+                launch_nse_dashboard()
+            elif choice == '8':
+                launch_simple_nse_dashboard()
             else:
                 print("❌ Invalid option! Please try again.")
             
