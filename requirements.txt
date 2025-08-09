@@ -1,0 +1,96 @@
+# Essential dependencies for NSE/BSE Trading Platform
+numpy>=1.24.0
+pandas>=2.0.0
+yfinance>=0.2.18
+requests>=2.31.0
+
+# Dash web framework for UI
+dash>=2.14.0
+dash-bootstrap-components>=1.2.0
+plotly>=5.15.0
+
+# Data processing and analysis
+scipy>=1.10.0
+scikit-learn>=1.3.0
+pandas-ta>=0.3.14b
+
+# Optional: Indian Market APIs (install if needed)
+# kiteconnect>=4.0.0
+# upstox-python-sdk>=2.0.0
+
+# Optional: Enhanced analysis tools
+# ta-lib>=0.4.28
+# quantlib>=1.31
+
+# Original comprehensive dependencies (kept for reference)
+alpha-vantage>=2.3.1
+websocket-client>=1.4.0
+
+# Machine learning and optimization
+optuna>=3.4.0
+xgboost>=1.7.0
+lightgbm>=4.0.0
+catboost>=1.2.0
+tensorflow>=2.13.0
+torch>=2.0.0
+
+# Risk management and portfolio optimization
+cvxpy>=1.3.0
+pypfopt>=1.5.4
+riskfolio-lib>=4.3.0
+
+# Options pricing and Greeks
+py_vollib>=1.0.1
+mibian>=0.1.3
+quantlib>=1.31
+
+# Data processing and visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+dash>=2.14.0
+dash-bootstrap-components>=1.2.0
+dash-table>=5.0.0
+dash-cytoscape>=0.3.0
+dash-daq>=0.5.0
+
+# Backtesting and analysis
+zipline-reloaded>=3.0.0
+backtrader>=1.9.78
+vectorbt>=0.25.0
+
+# Enhanced trading interface dependencies
+aiohttp>=3.8.0
+asyncio
+hashlib
+sqlite3
+pyfolio>=0.9.2
+empyrical>=0.5.5
+
+# Execution and connectivity
+alpaca-trade-api>=3.1.0
+ib-insync>=0.9.86
+ccxt>=4.0.0
+
+# Security and encryption
+cryptography>=37.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+aiohttp>=3.8.0
+redis>=4.6.0
+celery>=5.3.0
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Logging and monitoring
+loguru>=0.7.0
+prometheus-client>=0.17.0
+psutil>=5.9.0
